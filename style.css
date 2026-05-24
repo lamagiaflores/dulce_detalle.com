@@ -162,7 +162,7 @@ header {
     transform: scale(1.04); 
 }
 
-.categoria-carta h3 { 
+.categoria-carta h5 { 
     padding: 22px 0; 
     margin: 0; 
     font-size: 1.6rem; 
@@ -255,7 +255,7 @@ header {
     background-color: #eee;
 }
 
-.producto-tarjeta h3 { 
+.producto-tarjeta h5 { 
     font-size: 1.05rem; 
     margin: 10px 0 5px 0; 
     height: 42px; 
@@ -424,7 +424,7 @@ form input[type="datetime-local"] {
         height: 110px; 
     }
     
-    .producto-tarjeta h3 { 
+    .producto-tarjeta h5 { 
         font-size: 0.95rem; 
         height: 35px; 
     }
@@ -514,7 +514,7 @@ form input[type="datetime-local"] {
     margin-right: 6px;
 }
 /* ===== TÍTULOS DE PRODUCTOS RESPONSIVOS ===== */
-.producto-tarjeta h3 {
+.producto-tarjeta h5 {
     font-size: clamp(14px, 4vw, 18px); /* se adapta al tamaño de pantalla */
     line-height: 1.3;
     text-align: center;
