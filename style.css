@@ -523,3 +523,9 @@ form input[type="datetime-local"] {
     overflow-wrap: break-word;
     white-space: normal;
 }
+@media (max-width: 480px) {
+    .producto-tarjeta h3 {
+        font-size: 14px;
+        min-height: 40px; /* todos los títulos alineados */
+    }
+}
