@@ -1,0 +1,515 @@
+/* ==========================================================================
+   1. ESTILOS GENERALES Y BASE
+   ========================================================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; 
+    padding: 0; 
+    background-color: #fcf8f2; 
+    color: #333;
+}
+
+header {
+    background-color: #6f42c1; 
+    color: white; 
+    padding: 15px 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: sticky; 
+    top: 0; 
+    z-index: 100;
+}
+
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+}
+
+.btn-carrito-nav {
+    background-color: #fff; 
+    color: #6f42c1; 
+    border: none;
+    padding: 8px 15px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-carrito-nav:hover {
+    background-color: #f1e9ff;
+}
+
+/* ==========================================================================
+   2. CARRUSEL AUTOMÁTICO
+   ========================================================================== */
+.hero-section {
+    width: 100%;
+}
+
+.carrusel-contenedor {
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 20px auto;
+    overflow: hidden; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background-color: #eaeaea;
+}
+
+.carrusel-track { 
+    position: relative; 
+    width: 100%; 
+    height: 350px; 
+}
+
+.carrusel-item {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    opacity: 0; 
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.carrusel-item.active { 
+    opacity: 1; 
+    position: relative; 
+}
+
+.carrusel-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/* ==========================================================================
+   3. SECCIÓN CATEGORÍAS EN HOME
+   ========================================================================== */
+.seccion-catalogo-inicio { 
+    text-align: center; 
+    padding: 60px 20px; 
+    background-color: #fffaf5; 
+}
+
+.seccion-catalogo-inicio h2 { 
+    color: #6f42c1; 
+    font-size: 2.6rem; 
+    margin-bottom: 8px; 
+    font-weight: bold;
+}
+
+.seccion-catalogo-inicio .subtitulo { 
+    color: #666; 
+    margin-bottom: 45px;
+    font-size: 1.1rem;
+}
+
+.categorias-grid { 
+    display: flex; 
+    justify-content: center; 
+    align-items: stretch;
+    gap: 40px; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.categoria-carta {
+    background: white; 
+    border-radius: 20px; 
+    overflow: hidden; 
+    flex: 1; 
+    max-width: 460px; 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06); 
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.categoria-carta:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 14px 28px rgba(111, 66, 193, 0.15); 
+}
+
+.categoria-carta .imagen-contenedor { 
+    width: 100%; 
+    height: 300px; 
+    overflow: hidden; 
+    background-color: #f2eefb; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #7d63b8;
+    font-weight: 500;
+}
+
+.categoria-carta .imagen-contenedor img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s ease; 
+}
+
+.categoria-carta:hover .imagen-contenedor img { 
+    transform: scale(1.04); 
+}
+
+.categoria-carta h3 { 
+    padding: 22px 0; 
+    margin: 0; 
+    font-size: 1.6rem; 
+    color: #264653; 
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+/* ==========================================================================
+   4. MODALES GENERALES
+   ========================================================================== */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 200; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.cerrar-modal { 
+    color: #aaa; 
+    float: right; 
+    font-size: 28px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+.cerrar-modal:hover { 
+    color: black; 
+}
+
+.modal-contenido { 
+    background-color: white; 
+    margin: 5% auto; 
+    padding: 25px; 
+    border-radius: 15px; 
+    width: 90%; 
+    max-width: 500px; 
+    box-sizing: border-box; 
+}
+
+.modal-contenido-productos { 
+    background-color: #fdfbf7; 
+    margin: 2% auto; 
+    padding: 30px; 
+    border-radius: 20px; 
+    width: 94%; 
+    max-width: 950px; 
+    box-sizing: border-box; 
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2); 
+}
+
+.titulo-categoria { 
+    color: #6f42c1; 
+    margin-top: 0; 
+    border-bottom: 2px solid #f1e9ff; 
+    padding-bottom: 10px; 
+    font-size: 1.8rem; 
+}
+
+/* ==========================================================================
+   5. GRID INTERNO DE PRODUCTOS
+   ========================================================================== */
+.productos-grid { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    margin-top: 25px; 
+}
+
+.producto-tarjeta { 
+    background-color: white; 
+    border-radius: 12px; 
+    padding: 15px; 
+    width: 200px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    text-align: center; 
+}
+
+.producto-tarjeta img { 
+    width: 100%; 
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    background-color: #eee;
+}
+
+.producto-tarjeta h3 { 
+    font-size: 1.05rem; 
+    margin: 10px 0 5px 0; 
+    height: 42px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.producto-tarjeta .precio { 
+    color: #e76f51; 
+    font-weight: bold; 
+    font-size: 1.2rem; 
+    margin: 5px 0; 
+}
+
+.controles-agregar { 
+    display: flex; 
+    gap: 8px; 
+    justify-content: center; 
+    margin-top: 10px; 
+}
+
+.controles-agregar input { 
+    width: 45px; 
+    padding: 5px; 
+    text-align: center; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+}
+
+.controles-agregar button { 
+    background-color: #6f42c1; 
+    color: white; 
+    border: none; 
+    padding: 6px 12px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+
+.controles-agregar button:hover {
+    background-color: #5a32a3;
+}
+
+/* ==========================================================================
+   6. COMPONENTES DEL CARRITO Y FORMULARIO
+   ========================================================================== */
+.lista-carrito { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.lista-carrito li { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 0; 
+    border-bottom: 1px solid #eee; 
+}
+
+.btn-eliminar { 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 1.1rem; 
+}
+
+.total-caja { 
+    background-color: #f8f9fa; 
+    padding: 10px; 
+    border-radius: 8px; 
+    text-align: right; 
+    margin-top: 15px; 
+}
+
+form label { 
+    display: block; 
+    margin-top: 12px; 
+    font-weight: bold; 
+    font-size: 0.9rem; 
+}
+
+form input[type="text"], 
+form input[type="tel"], 
+form input[type="datetime-local"] { 
+    width: 100%; 
+    padding: 10px; 
+    margin-top: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    box-sizing: border-box; 
+}
+
+.grupo-radio { 
+    display: flex; 
+    gap: 15px; 
+    margin-top: 8px; 
+}
+
+.btn-enviar-pedido { 
+    width: 100%; 
+    background-color: #25d366; 
+    color: white; 
+    border: none; 
+    padding: 14px; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    margin-top: 20px; 
+}
+
+.btn-enviar-pedido:hover {
+    background-color: #1ebd54;
+}
+
+/* ==========================================================================
+   7. DISPOSITIVOS MÓVILES (CELULARES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .carrusel-track { 
+        height: 200px; 
+    }
+    
+    .seccion-catalogo-inicio { 
+        padding: 40px 15px; 
+    }
+    
+    .seccion-catalogo-inicio h2 { 
+        font-size: 2rem; 
+    }
+
+    .categorias-grid { 
+        flex-direction: column; 
+        align-items: center;
+        gap: 25px; 
+    }
+    
+    .categoria-carta { 
+        width: 100%; 
+        max-width: 340px; 
+        border-radius: 16px; 
+    }
+    
+    .categoria-carta .imagen-contenedor { 
+        height: 180px; 
+    }
+    
+    .categoria-carta h3 { 
+        font-size: 1.3rem; 
+        padding: 15px 0; 
+    }
+    
+    .modal-contenido-productos { 
+        padding: 15px; 
+        margin: 5% auto; 
+    }
+    
+    .producto-tarjeta { 
+        width: 44%; 
+        min-width: 135px; 
+        padding: 8px; 
+    }
+    
+    .producto-tarjeta img { 
+        height: 110px; 
+    }
+    
+    .producto-tarjeta h3 { 
+        font-size: 0.95rem; 
+        height: 35px; 
+    }
+}
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #28a745;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+/* Cuando se muestra */
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ==========================================================================
+   TEXTO SOBRE EL CARRUSEL (RECUADRO TRANSLÚCIDO)
+   ========================================================================== */
+
+.carrusel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrusel-texto {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.45); /* translúcido */
+    color: white;
+    padding: 30px 40px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 600px;
+    backdrop-filter: blur(4px); /* efecto vidrio */
+}
+
+.carrusel-texto h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.carrusel-texto p {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* ===== Responsive texto carrusel ===== */
+@media (max-width: 768px) {
+    .carrusel-texto {
+        padding: 18px 20px;
+        max-width: 90%;
+    }
+
+    .carrusel-texto h2 {
+        font-size: 1.6rem;
+    }
+
+    .carrusel-texto p {
+        font-size: 1rem;
+    }
+}
+.opciones-peso {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+    margin: 8px 0;
+}
+
+.opciones-peso label {
+    cursor: pointer;
+}
+
+.opciones-peso input {
+    margin-right: 6px;
+}
