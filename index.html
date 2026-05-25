@@ -495,6 +495,48 @@
         </button>
     </div>
 </div>
+            <div class="producto-tarjeta">
+    <img src="img/016.jpeg">
+    <h5>Mini panes con pollo.</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="monto-pansito" value="30" checked
+                   onchange="cambiarPrecio(this, 'precio-pansito')">
+            1/4 cto – S/. 30
+        </label>
+
+        <label>
+            <input type="radio" name="monto-pansito" value="50"
+                   onchange="cambiarPrecio(this, 'precio-pansito')">
+            1/2 cto – S/. 50
+        </label>
+
+        <label>
+            <input type="radio" name="monto-pansito" value="90"
+                   onchange="cambiarPrecio(this, 'precio-pansito')">
+            1 cto – S/. 90
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-pansito">S/. 30.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-pansito" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini pan con pollo',
+            'cto-pansito',
+            'precio-pansito',
+            'cant-pansito'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
         </div>
     </div>
 </div>
