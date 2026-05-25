@@ -537,6 +537,90 @@
         </button>
     </div>
 </div>
+                        <div class="producto-tarjeta">
+    <img src="img/0001.jpeg">
+    <h5>Enrollado de hotdog.</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-cto">
+        <label>
+            <input type="radio" name="cto-triangulo" value="30" checked
+                   onchange="cambiarPrecio(this, 'precio-triangulo')">
+            1/4 cto – S/. 30
+        </label>
+
+        <label>
+            <input type="radio" name="cto-triangulo" value="50"
+                   onchange="cambiarPrecio(this, 'precio-triangulo')">
+            1/2 cto – S/. 50
+        </label>
+
+        <label>
+            <input type="radio" name="cto-triangulo" value="90"
+                   onchange="cambiarPrecio(this, 'precio-triangulo')">
+            1 cto – S/. 90
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-triangulo">S/. 30.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-triangulo" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConcto(
+            'Enrollado de hotdog',
+            'cto-triangulo',
+            'precio-triangulo',
+            'cant-triangulo'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+                        <div class="producto-tarjeta">
+    <img src="img/0002.jpeg">
+    <h5>pan de miga en forma de triangulo.</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-cto">
+        <label>
+            <input type="radio" name="cto-jodo" value="30" checked
+                   onchange="cambiarPrecio(this, 'precio-jodo')">
+            1/4 cto – S/. 30
+        </label>
+
+        <label>
+            <input type="radio" name="cto-jodo" value="50"
+                   onchange="cambiarPrecio(this, 'precio-jodo')">
+            1/2 cto – S/. 50
+        </label>
+
+        <label>
+            <input type="radio" name="cto-jodo" value="90"
+                   onchange="cambiarPrecio(this, 'precio-jodo')">
+            1 cto – S/. 90
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-jodo">S/. 30.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-jodo" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConcto(
+            'pan de miga en forma de triangulo',
+            'cto-jodo',
+            'precio-jodo',
+            'cant-jodo'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
         </div>
     </div>
 </div>
