@@ -309,3 +309,34 @@ function agregarAlCarritoConPeso(nombreProducto, namePeso, idPrecio, idCantidad)
     // 👉 usamos la función original SIN tocarla
     agregarAlCarrito(nombreFinal, precioSeleccionado, idCantidad);
 }
+function agregarAlCarritoConcto(nombreProducto, namecto, idPrecio, idCantidad) {
+    const cantidadInput = document.getElementById(idCantidad);
+
+    if (!cantidadInput) {
+        alert("Error: no se encontró el campo de cantidad.");
+        return;
+    }
+
+    const cantidad = parseInt(cantidadInput.value);
+
+    if (isNaN(cantidad) || cantidad <= 0) {
+        alert("Por favor, ingresa una cantidad válida mayor a 0.");
+        return;
+    }
+
+    const radios = document.querySelectorAll(`input[name="${namecto}"]`);
+    let precioSeleccionado = 0;
+    let ctoTexto = "";
+
+    radios.forEach(radio => {
+        if (radio.checked) {
+            precioSeleccionado = parseFloat(radio.value);
+            ctoTexto = radio.parentElement.textContent.trim();
+        }
+    });
+
+    const nombreFinal = `${nombreProducto} (${ctoTexto.split("–")[0].trim()})`;
+
+    // 👉 usamos la función original SIN tocarla
+    agregarAlCarrito(nombreFinal, precioSeleccionado, idCantidad);
+}
