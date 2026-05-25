@@ -513,6 +513,21 @@ form input[type="datetime-local"] {
 .opciones-peso input {
     margin-right: 6px;
 }
+.opciones-cto {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+    margin: 8px 0;
+}
+
+.opciones-cto label {
+    cursor: pointer;
+}
+
+.opciones-cto input {
+    margin-right: 6px;
+}
 /* ===== TÍTULOS DE PRODUCTOS RESPONSIVOS ===== */
 .producto-tarjeta h5 {
     font-size: clamp(14px, 4vw, 18px); /* se adapta al tamaño de pantalla */
