@@ -1,71 +1,686 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Dulce Detalle | Mini Queques Artesanales</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Detalle - Mini Queques</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-  <h1 class="logo">🧁 Dulce Detalle</h1>
-  <button class="btn-carrito" onclick="toggleCarrito()">🛒 Carrito</button>
+<header>
+    <div class="logo">🧁 Dulce Detalle 🧁</div>
+    <button class="btn-carrito-nav" id="contador-carrito" onclick="abrirModal('modal-carrito')">
+        🛒 Carrito (0)
+    </button>
 </header>
 
-<section class="hero">
-  <h2>Mini queques artesanales<br>hechos con amor</h2>
-  <p>Calidad gourmet para tus momentos especiales</p>
+<section class="hero-section">
+    <div class="carrusel-contenedor">
+        <div class="carrusel-track">
+
+            <div class="carrusel-item active">
+                <img src="img/01.png" alt="">
+                <div class="carrusel-texto">
+                    <h2>Mini queques hechos con amor</h2>
+                    <p>Perfectos para sorprender en cualquier ocasión</p>
+                </div>
+            </div>
+
+            <div class="carrusel-item">
+                <img src="img/02.png" alt="">
+                <div class="carrusel-texto">
+                    <h2>Dulces artesanales</h2>
+                    <p>Sabor casero que se siente en cada bocado</p>
+                </div>
+            </div>
+
+            <div class="carrusel-item">
+                <img src="img/03.png" alt="">
+                <div class="carrusel-texto">
+                    <h2>Ideales para compartir</h2>
+                    <p>Eventos, reuniones y momentos especiales</p>
+                </div>
+            </div>
+
+            <div class="carrusel-item">
+                <img src="img/04.png" alt="">
+                <div class="carrusel-texto">
+                    <h2>Pedidos personalizados</h2>
+                    <p>El detalle perfecto para regalar</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
 
-<section class="catalogo">
-  <h2 class="titulo-seccion">Nuestros Productos</h2>
+<section class="seccion-catalogo-inicio">
+    <h2>🧁 NUESTRO CATÁLOGO 🍕</h2>
+    <p class="subtitulo">Selecciona tu categoría favorita para descubrir nuestros sabores</p>
 
-  <div class="productos-grid">
+    <div class="categorias-grid">
+        <div class="categoria-carta" onclick="abrirModal('modal-dulces')">
+            <div class="imagen-contenedor">
+                <img src="img/02.png" alt="Mini Queques Dulces">
+                <span>Mini Queques Dulces</span>
+            </div>
+            <h3>Dulces 🧁</h3>
+        </div>
 
-    <div class="producto-card">
-      <img src="img/01.png" alt="Mini Queque Chocolate">
-      <h3>Mini Queque Chocolate</h3>
-      <p class="precio">S/. 6.00</p>
-      <input type="number" min="1" value="1" id="cant-choco">
-      <button onclick="agregarProductoDesdeUI('Mini Queque Chocolate', 6, 'cant-choco')">
-        Agregar
-      </button>
+        <div class="categoria-carta" onclick="abrirModal('modal-salados')">
+            <div class="imagen-contenedor">
+                <img src="img/05.png" alt="Mini Queques Salados">
+                <span>Mini Queques Salados</span>
+            </div>
+            <h3>Salados 🍕</h3>
+        </div>
     </div>
-
-    <div class="producto-card">
-      <img src="img/02.png" alt="Mini Queque Vainilla">
-      <h3>Mini Queque Vainilla</h3>
-      <p class="precio">S/. 5.50</p>
-      <input type="number" min="1" value="1" id="cant-vainilla">
-      <button onclick="agregarProductoDesdeUI('Mini Queque Vainilla', 5.5, 'cant-vainilla')">
-        Agregar
-      </button>
-    </div>
-
-  </div>
 </section>
 
-<!-- CARRITO -->
-<aside class="carrito" id="carrito">
-  <h3>🛒 Tu pedido</h3>
-  <ul id="listaCarrito"></ul>
+<!-- ================= MODAL DULCES Mini ================= -->
+<div id="modal-dulces" class="modal">
+    <div class="modal-content modal-contenido-productos">
+        <span class="cerrar-modal" onclick="cerrarModal('modal-dulces')">&times;</span>
+        <h2 class="titulo-categoria">Mini Queques Dulces 🧁</h2>
 
-  <p class="total">Total: S/. <span id="total">0.00</span></p>
+        <div class="productos-grid">
+            <div class="producto-tarjeta">
+    <img src="img/04.png">
+    <h5>Mini Chocolate con ("forma de tasa")</h5>
 
-  <button class="btn-whatsapp" onclick="enviarWhatsApp()">
-    Confirmar por WhatsApp
-  </button>
-</aside>
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-choc" value="20" checked
+                   onchange="cambiarPrecio(this, 'precio-choc')">
+            1/4 kg – S/. 20
+        </label>
 
-<footer class="footer">
-  <p>© 2026 Dulce Detalle · Pastelería Artesanal</p>
-</footer>
+        <label>
+            <input type="radio" name="peso-choc" value="40"
+                   onchange="cambiarPrecio(this, 'precio-choc')">
+            1/2 kg – S/. 40
+        </label>
+
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-choc">S/. 20.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-choc" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque Chocolate con (forma de tasa)',
+            'peso-choc',
+            'precio-choc',
+            'cant-choc'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+
+            <div class="producto-tarjeta">
+    <img src="img/002.jpg">
+    <h5>Mini Chocolate con ("forma de Zapatilla de futbol")</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-tor" value="20" checked
+                   onchange="cambiarPrecio(this, 'precio-tor')">
+            1/4 kg – S/. 20
+        </label>
+
+        <label>
+            <input type="radio" name="peso-tor" value="45"
+                   onchange="cambiarPrecio(this, 'precio-tor')">
+            1/2 kg – S/. 40
+        </label>
+
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-tor">S/. 20.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-tor" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque de Chocolate con (forma de Zapatilla de futbol)',
+            'peso-tor',
+            'precio-tor',
+            'cant-tor'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+
+            <div class="producto-tarjeta">
+    <img src="img/02.png">
+    <h5>Mini chocolate con ("forma de camisa")</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-vai" value="20" checked
+                   onchange="cambiarPrecio(this, 'precio-vai')">
+            1/4 kg – S/. 20
+        </label>
+
+        <label>
+            <input type="radio" name="peso-vai" value="40"
+                   onchange="cambiarPrecio(this, 'precio-vai')">
+            1/2 kg – S/. 40
+        </label>
+
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-vai">S/. 20.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-vai" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque de chocolate con (forma de camisa)',
+            'peso-vai',
+            'precio-vai',
+            'cant-vai'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+
+            <div class="producto-tarjeta">
+    <img src="img/014.jpg">
+    <h5>Mini chocolate con ("diseño de camisa")</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-za" value="20" checked
+                   onchange="cambiarPrecio(this, 'precio-za')">
+            1/4 kg – S/. 20
+        </label>
+
+        <label>
+            <input type="radio" name="peso-za" value="45"
+                   onchange="cambiarPrecio(this, 'precio-za')">
+            1/2 kg – S/. 40
+        </label>
+
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-za">S/. 20.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-za" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque de chocolate con (diseño de camisa)',
+            'peso-za',
+            'precio-za',
+            'cant-za'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+<div class="producto-tarjeta">
+    <img src="img/015.jpg">
+    <h5>Mini Chocolate con("imagen de una tasa mas frase")</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-pan" value="20" checked
+                   onchange="cambiarPrecio(this, 'precio-pan')">
+            1/4 kg – S/. 20
+        </label>
+
+        <label>
+            <input type="radio" name="peso-pan" value="40"
+                   onchange="cambiarPrecio(this, 'precio-pan')">
+            1/2 kg – S/. 40
+        </label>
+
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-pan">S/. 20.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-pan" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque con (imagen de una tasa mas frase)',
+            'peso-pan',
+            'precio-pan',
+            'cant-pan'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= MODAL SALADOS ================= -->
+<div id="modal-salados" class="modal">
+    <div class="modal-content modal-contenido-productos">
+        <span class="cerrar-modal" onclick="cerrarModal('modal-salados')">&times;</span>
+        <h2 class="titulo-categoria">Mini Queques Salados 🍕</h2>
+
+        <div class="productos-grid">
+            <div class="producto-tarjeta">
+    <img src="img/01.png">
+    <h5>Mini redondeado con ("Queso","Chorizo","Aceituna").</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-jamon" value="25" checked
+                   onchange="cambiarPrecio(this, 'precio-jamon')">
+            1/4 kg – S/. 25
+        </label>
+
+        <label>
+            <input type="radio" name="peso-jamon" value="45"
+                   onchange="cambiarPrecio(this, 'precio-jamon')">
+            1/2 kg – S/. 45
+        </label>
+
+        <label>
+            <input type="radio" name="peso-jamon" value="80"
+                   onchange="cambiarPrecio(this, 'precio-jamon')">
+            1 kg – S/. 80
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-jamon">S/. 25.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-jamon" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque redondeado con (Queso,Chorizo,Aceituna)',
+            'peso-jamon',
+            'precio-jamon',
+            'cant-jamon'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+
+            <div class="producto-tarjeta">
+    <img src="img/05.png">
+    <h5>Mini cuadrado con ("Jamon,chorizo,aceituna").</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-queso" value="25" checked
+                   onchange="cambiarPrecio(this, 'precio-queso')">
+            1/4 kg – S/. 25
+        </label>
+
+        <label>
+            <input type="radio" name="peso-queso" value="45"
+                   onchange="cambiarPrecio(this, 'precio-queso')">
+            1/2 kg – S/. 45
+        </label>
+
+        <label>
+            <input type="radio" name="peso-queso" value="80"
+                   onchange="cambiarPrecio(this, 'precio-queso')">
+            1 kg – S/. 80
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-queso">S/. 25.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-queso" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque cuadrado con (Jamon,chorizo,aceituna)',
+            'peso-queso',
+            'precio-queso',
+            'cant-queso'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+<div class="producto-tarjeta">
+    <img src="img/08.jpg">
+    <h5>Mini Queque ("Mixto").</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-tel" value="25" checked
+                   onchange="cambiarPrecio(this, 'precio-tel')">
+            1/4 kg – S/. 25
+        </label>
+
+        <label>
+            <input type="radio" name="peso-tel" value="45"
+                   onchange="cambiarPrecio(this, 'precio-tel')">
+            1/2 kg – S/. 45
+        </label>
+
+        <label>
+            <input type="radio" name="peso-tel" value="80"
+                   onchange="cambiarPrecio(this, 'precio-tel')">
+            1 kg – S/. 80
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-tel">S/. 25.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-tel" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque (Mixto)',
+            'peso-tel',
+            'precio-tel',
+            'cant-tel'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+<div class="producto-tarjeta">
+    <img src="img/010.jpg">
+    <h5>MIni Queque ("Capricho Salado").</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-tol" value="25" checked
+                   onchange="cambiarPrecio(this, 'precio-tol')">
+            1/4 kg – S/. 25
+        </label>
+
+        <label>
+            <input type="radio" name="peso-tol" value="45"
+                   onchange="cambiarPrecio(this, 'precio-tol')">
+            1/2 kg – S/. 45
+        </label>
+
+        <label>
+            <input type="radio" name="peso-tol" value="80"
+                   onchange="cambiarPrecio(this, 'precio-tol')">
+            1 kg – S/. 80
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-tol">S/. 25.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-tol" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'MIni Queque (Capricho Salado)´',
+            'peso-tol',
+            'precio-tol',
+            'cant-tol'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+<div class="producto-tarjeta">
+    <img src="img/011.jpg">
+    <h5>Mini Queque ("Trio salado").</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-peso">
+        <label>
+            <input type="radio" name="peso-tal" value="25" checked
+                   onchange="cambiarPrecio(this, 'precio-tal')">
+            1/4 kg – S/. 25
+        </label>
+
+        <label>
+            <input type="radio" name="peso-tal" value="45"
+                   onchange="cambiarPrecio(this, 'precio-tal')">
+            1/2 kg – S/. 45
+        </label>
+
+        <label>
+            <input type="radio" name="peso-tal" value="80"
+                   onchange="cambiarPrecio(this, 'precio-tal')">
+            1 kg – S/. 80
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-tal">S/. 25.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-tal" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConPeso(
+            'Mini Queque (Trio salado)',
+            'peso-tal',
+            'precio-tal',
+            'cant-tal'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+            <div class="producto-tarjeta">
+    <img src="img/016.jpeg">
+    <h5>Mini panes con pollo.</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-cto">
+        <label>
+            <input type="radio" name="cto-pansito" value="30" checked
+                   onchange="cambiarPrecio(this, 'precio-pansito')">
+            1/4 cto – S/. 30
+        </label>
+
+        <label>
+            <input type="radio" name="cto-pansito" value="50"
+                   onchange="cambiarPrecio(this, 'precio-pansito')">
+            1/2 cto – S/. 50
+        </label>
+
+        <label>
+            <input type="radio" name="cto-pansito" value="90"
+                   onchange="cambiarPrecio(this, 'precio-pansito')">
+            1 cto – S/. 90
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-pansito">S/. 30.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-pansito" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConcto(
+            'Mini pan con pollo',
+            'cto-pansito',
+            'precio-pansito',
+            'cant-pansito'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+                        <div class="producto-tarjeta">
+    <img src="img/0001.jpeg">
+    <h5>Enrollado de hotdog.</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-cto">
+        <label>
+            <input type="radio" name="cto-triangulo" value="30" checked
+                   onchange="cambiarPrecio(this, 'precio-triangulo')">
+            1/4 cto – S/. 30
+        </label>
+
+        <label>
+            <input type="radio" name="cto-triangulo" value="50"
+                   onchange="cambiarPrecio(this, 'precio-triangulo')">
+            1/2 cto – S/. 50
+        </label>
+
+        <label>
+            <input type="radio" name="cto-triangulo" value="90"
+                   onchange="cambiarPrecio(this, 'precio-triangulo')">
+            1 cto – S/. 90
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-triangulo">S/. 30.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-triangulo" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConcto(
+            'Enrollado de hotdog',
+            'cto-triangulo',
+            'precio-triangulo',
+            'cant-triangulo'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+                        <div class="producto-tarjeta">
+    <img src="img/0002.jpeg">
+    <h5>pan de miga en forma de triangulo.</h5>
+
+    <!-- OPCIONES DE PESO -->
+    <div class="opciones-cto">
+        <label>
+            <input type="radio" name="cto-jodo" value="30" checked
+                   onchange="cambiarPrecio(this, 'precio-jodo')">
+            1/4 cto – S/. 30
+        </label>
+
+        <label>
+            <input type="radio" name="cto-jodo" value="50"
+                   onchange="cambiarPrecio(this, 'precio-jodo')">
+            1/2 cto – S/. 50
+        </label>
+
+        <label>
+            <input type="radio" name="cto-jodo" value="90"
+                   onchange="cambiarPrecio(this, 'precio-jodo')">
+            1 cto – S/. 90
+        </label>
+    </div>
+
+    <!-- PRECIO DINÁMICO -->
+    <div class="precio" id="precio-jodo">S/. 30.00</div>
+
+    <!-- CANTIDAD + BOTÓN -->
+    <div class="controles-agregar">
+        <input type="number" id="cant-jodo" value="1" min="1">
+
+        <button onclick="agregarAlCarritoConcto(
+            'pan de miga en forma de triangulo',
+            'cto-jodo',
+            'precio-jodo',
+            'cant-jodo'
+        )">
+            Agregar
+        </button>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= MODAL CARRITO ================= -->
+<div id="modal-carrito" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar-modal" onclick="cerrarModal('modal-carrito')">&times;</span>
+        <h2>🛒 Tu Pedido</h2>
+
+        <div id="contenido-carrito">
+            <p>El carrito está vacío.</p>
+        </div>
+
+        <div class="total-caja">
+            <strong>Total a pagar:</strong> S/. <span id="total-precio">0.00</span>
+        </div>
+
+        <form onsubmit="enviarFormulario(event)">
+            <label>Nombre Completo:</label>
+            <input type="text" id="nombre" required>
+
+            <label>Celular / WhatsApp:</label>
+            <input type="tel" id="celular" required>
+
+            <label>Fecha y Hora de Entrega:</label>
+            <input type="datetime-local" id="fecha" required>
+
+            <label>Modalidad de Entrega:</label>
+            <div class="grupo-radio">
+                <label><input type="radio" name="entrega" value="Retiro" required onclick="controlarDeliveryMobile('Retiro')"> Retiro</label>
+                <label><input type="radio" name="entrega" value="Delivery" onclick="controlarDeliveryMobile('Delivery')"> Delivery (+S/.5)</label>
+            </div>
+
+            <div id="campo-direccion" style="display:none">
+                <label>Dirección:</label>
+                <input type="text" id="direccion">
+            </div>
+
+            <!-- ✅ PAGO DEFINITIVO -->
+            <label>Método de Pago:</label>
+            <div class="grupo-radio">
+                <label>
+                    <input type="radio" name="pago" value="Yape" checked required>
+                    Yape (Pago obligatorio)
+                </label>
+            </div>
+
+            <div id="campo-yape" style="margin-top:15px; text-align:center;"></div>
+
+            <button type="submit" class="btn-enviar-pedido">
+                🚀 Confirmar Pedido por WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
 
 <script src="script.js"></script>
+<div id="toast" class="toast">
+    ✔ Producto agregado al carrito
+</div>
 </body>
 </html>
