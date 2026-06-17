@@ -64,12 +64,6 @@ header {
    ========================================================================== */
 .hero-section { padding: 1.5rem 5% 0; }
 
-.carrusel-track {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
 .carrusel-contenedor {
     max-width: 1200px;
     margin: 20px auto;
@@ -77,11 +71,19 @@ header {
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     position: relative;
-    height: 350px;
+    height: 400px; /* Altura ajustada para que luzca bien */
+}
+
+.carrusel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .carrusel-item {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -93,15 +95,30 @@ header {
 
 .carrusel-item.active { opacity: 1; }
 
+/* Imagen como fondo que cubre todo */
+.carrusel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Texto centrado sobre la imagen */
 .carrusel-texto {
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
     color: white;
     max-width: 80%;
 }
+
 
 /* ==========================================================================
    4. CATÁLOGO Y GRID DE PRODUCTOS
